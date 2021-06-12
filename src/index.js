@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const pkg = require('../package.json');
 const { loadEnvVars } = require('./config');
+const domains = require('./domains')
 loadEnvVars();
 const app = express();
 
@@ -15,7 +16,7 @@ mongoose
 
 app.use(express.json());
 app.use(cors());
-
+domains(app);
 app.get('/', (req, res) => {
   const { name, version, description, author } = pkg;
   return res.status(200).send({ name, version, description, author });
