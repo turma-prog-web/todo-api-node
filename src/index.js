@@ -21,9 +21,6 @@ app.get('/', (req, res) => {
   return res.status(200).send({ name, version, description, author });
 });
 
-const task = require('./domains/task/route/task.route');
-task(app);
-
 app.listen(process.env.PORT, () => {
   console.log('API rodando...');
 });
