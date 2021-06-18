@@ -6,7 +6,7 @@ class TaskBoardService {
 
   async getAll() {
     try {
-      const results = await this.repository.find().populate("users");
+      const results = await this.repository.find().populate('users');
       return results;
     } catch (error) {
       console.log(error);
@@ -15,7 +15,7 @@ class TaskBoardService {
 
   async getById(_id) {
     try {
-      const results = await this.repository.findOne({ _id }).populate("users");
+      const results = await this.repository.findOne({ _id }).populate('users');
       return results;
     } catch (error) {
       console.log(error);
