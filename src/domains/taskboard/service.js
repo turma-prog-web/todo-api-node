@@ -4,6 +4,16 @@ class TaskBoardService {
     this.repository = TaskBoardRepo;
   }
 
+  async getAllByCustomerId(userId) {
+    try {
+      const query = { users: { $in: [userId] } };
+      const results = await this.repository.find(query).populate('users');
+      return results;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async getAll() {
     try {
       const results = await this.repository.find().populate('users');

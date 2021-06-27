@@ -3,6 +3,14 @@ class TaskBoardController {
   constructor() {
     this.service = new TaskBoardService();
   }
+  async getAllByCustomerId(req, res) {
+    try {
+      const results = await this.service.getAllByCustomerId(req.params.userId);
+      return res.status(200).send({ results });
+    } catch (error) {
+      return res.status(500).send({ error });
+    }
+  }
 
   async getAll(req, res) {
     try {
