@@ -15,7 +15,7 @@ module.exports = (app) => {
   app.put('/task-column/:columnId/remove/:taskId', (...params) =>
     controller.removeTaskOnColum(...params)
   );
-  app.delete('/task-colum/:id', (...params) =>
+  app.delete('/task-column/:id', (...params) =>
     controller.removeItem(...params)
   );
 };
